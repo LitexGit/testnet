@@ -1,0 +1,6 @@
+[submodule "raiden"]
+	path = raiden
+	url = https://github.com/litexnetwork/raiden.git
+[submodule "lnd"]
+	path = lnd
+	url = https://github.com/litexnetwork/lnd.git
