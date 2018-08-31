@@ -16,8 +16,10 @@ RUN apt-get install -y git-core wget xz-utils
 #WORKDIR /raiden-litex
 #RUN git tag -d litex0.1
 
-ADD ./raiden-litex /raiden-litex
-WORKDIR /raiden-litex
+ADD ./raiden /raiden
+RUN rm /raiden/.git
+ADD .git/modules/raiden /raiden/.git
+WORKDIR /raiden
 
 
 RUN pip install -r requirements.txt
