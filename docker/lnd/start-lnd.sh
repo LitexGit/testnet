@@ -44,6 +44,7 @@ RPCPASS=$(set_default "$RPCPASS" "devpass")
 DEBUG=$(set_default "$DEBUG" "debug")
 NETWORK=$(set_default "$NETWORK" "simnet")
 CHAIN=$(set_default "$CHAIN" "bitcoin")
+TLSEXTRAIP=$(set_default "$TLSEXTRAIP" "127.0.0.1")
 BACKEND="btcd"
 if [[ "$CHAIN" == "litecoin" ]]; then
     BACKEND="ltcd"
@@ -56,6 +57,7 @@ exec lnd \
     --rpclisten=0.0.0.0:10009 \
     --listen=0.0.0.0:9735 \
     --restlisten=0.0.0.0:8080 \
+    --tlsextraip="$TLSEXTRAIP" \
     "--$CHAIN.active" \
     "--$CHAIN.$NETWORK" \
     "--$CHAIN.node"="btcd" \
